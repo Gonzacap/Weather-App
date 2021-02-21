@@ -48,12 +48,13 @@ async function search(query) {
     temp.innerHTML = `${toCelsius(data.main.temp)}°c`;
     weather.innerHTML = data.weather[0].description;
     range.innerHTML = `${toCelsius(data.main.temp_min)}°c min - ${toCelsius(data.main.temp_max)}°c max`;
-    alert(data.rain);
+    
     updateImages(data);
 
   } catch (err) {
     console.log(err);
     alert('Hubo un error');
+    document.getElementById('card').style.display ='none';
   }
 }
 
@@ -86,3 +87,17 @@ else{
   
   alert('algo anda mal');
 }
+
+
+/*function initialize() {
+  // Cree el objeto de autocompletado, restringiendo la búsqueda
+
+  autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchbox'));
+
+  // Cuando el usuario selecciona una dirección en el menú desplegable,
+  // rellena los campos de dirección en el formulario.
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    fillInAddress();
+  });
+
+}*/
