@@ -18,12 +18,20 @@ const range = document.getElementById('range');
 
 function updateImages(data) {
   const temp = toCelsius(data.main.temp);
-  let src = 'images/temp-mid.png';
+  const rain = data.weather[0].main;
+
+  let src = 'Images/temp-mid.png';
+
   if (temp > 26) {
-    src = 'images/temp-high.png';
+    src = 'Images/temp-high.png';
   } else if (temp < 20) {
-    src = 'images/temp-low.png';
+    src = 'Images/temp-low.png';
   }
+
+  if(rain=='rain'){
+    src = 'Images/temp-rain.png';
+  }
+
   tempImg.src = src;
 }
 
@@ -40,6 +48,7 @@ async function search(query) {
     temp.innerHTML = `${toCelsius(data.main.temp)}°c`;
     weather.innerHTML = data.weather[0].description;
     range.innerHTML = `${toCelsius(data.main.temp_min)}°c min - ${toCelsius(data.main.temp_max)}°c max`;
+    alert(data.rain);
     updateImages(data);
 
   } catch (err) {
