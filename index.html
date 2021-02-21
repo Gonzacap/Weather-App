@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defear></script>
+    <script src="main.js" defer></script>
     <title>Clima</title>
 </head>
 <body>
@@ -15,33 +15,36 @@
     <main>
         
         <div class="search-form">
-            <form id="search-form">
+            <form id="search-form" href="#">
                 <div class="searchbox">
-                    <input type="text" autocomplete="off" placeholder="Buscar Ciudad" class="search" id="search"></input>
+                    <input type="text" autocomplete="off" placeholder="Buscar Ciudad" class="search" id="searchbox"></input>
                 </div>
             </form>
         </div>
 
-        <div class="weather-card">
+        <div class="weather-card" id="card">
 
-            <div class="city">SF, Arg</div>
-            <div class="date">18/10/2020</div>
+            <div class="city" id="city">SF, Arg</div>
+            <div class="date" id="date">18/10/2020</div>
             <div class="temperature">
-                <img src="Images/prueba.jpg" class="temp-img" alt="">
-                <div class="temp">14°C</div >
+                <img src="Images/prueba.jpg" class="temp-img" id="temp-img" alt="clima">
+                <div class="temp" id="temp">14°C</div >
              </div>
-            <div class="weather">Soleado</div>
-            <div class="range">12°C - 18°C</div>
+            <div class="weather" id="weather">Soleado</div>
+            <div class="range" id="range">12°C - 18°C</div>
 
         </div>
 
     </main>
     
     <footer>
-        <p>Creado por Gonzacap</p>
-        <p>Icons made by </p>
-        <a href="https://www.freepik.es/vectores/nieve">Vector de Nieve creado por smithytomy - www.freepik.es</a>
-        <p>Images from </p>
+        <p>Creado por <a href="https://gonzacap.github.io/My-Link-Tree/" target="_blank" >Gonzacap</a></p>
+
+        <div>Iconos diseñados por 
+            <a href="https://www.freepik.com" title="Freepik">Freepik</a> 
+            de <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
+        </div>
+
     </footer>
 
 </body>

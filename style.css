@@ -25,6 +25,7 @@ p {
 }
 
 footer{
+    /*background-color: red;*/
     position: fixed;
     bottom: 0;
     padding: 20px 0px;
@@ -63,6 +64,7 @@ footer{
     padding: 20px;
     text-align: center;
     border-radius: 4px;
+    display: none;
 }
 
 .city {

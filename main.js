@@ -1,13 +1,13 @@
-
+/* Utiliza el API de Geolocalización de tu navegador para obtener el clima de tu ubicación. */
 
 const api = {
 
     key: "35a94154ce8fdd37a635f7406a438915",
-    url:"https://api.openweathermap.org/data/2.5/weather"
+    url: "https://api.openweathermap.org/data/2.5/weather"
     //url: "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
 }
 
-/*const card = document.getElementById('card')
+const card = document.getElementById('card');
 
 const city = document.getElementById('city');
 const date = document.getElementById('date');
@@ -31,13 +31,17 @@ async function search(query) {
   try {
     const response = await fetch(`${api.url}?q=${query}&appid=${api.key}&lang=es`);
     const data = await response.json();
+    console.log(data);
+
     card.style.display = 'block';
+
     city.innerHTML = `${data.name}, ${data.sys.country}`;
     data.innerHTML = (new Date()).toLocaleDateString();
-    temp.innerHTML = `${toCelsius(data.main.temp)}c`;
+    temp.innerHTML = `${toCelsius(data.main.temp)}°c`;
     weather.innerHTML = data.weather[0].description;
-    range.innerHTML = `${toCelsius(data.main.temp_min)}c / ${toCelsius(data.main.temp_max)}c`;
+    range.innerHTML = `${toCelsius(data.main.temp_min)}°c min - ${toCelsius(data.main.temp_max)}°c max`;
     updateImages(data);
+
   } catch (err) {
     console.log(err);
     alert('Hubo un error');
@@ -46,24 +50,30 @@ async function search(query) {
 
 function toCelsius(kelvin) {
   return Math.round(kelvin - 273.15);
-}*/
-
-/*function onSubmit(event) {
-  event.preventDefault();
-  alert("Oops! Has perdido");
-  search(searchbox.value);
 }
-
-const searchform = document.getElementById('search-form');
-const searchbox = document.getElementById('searchbox');
-searchform.addEventListener('submit', onSubmit, true);*/
 
 function onSubmit(event) {
+  
   event.preventDefault();
-  alert("Oops! Has perdido");
+
+  if(event.preventDefault){
+    event.preventDefault();
+  }
+  else{
+    event.returnValue = false;
+  }
+
+  //alert(searchbox.value);
   search(searchbox.value);
 }
 
-const form = document.getElementById("search-form");
+const searchform = document.getElementById("search-form");
 const searchbox = document.getElementById("searchbox");
-form.addEventListener("submit", onSubmit, true);
+
+if(searchform){
+  searchform.addEventListener("submit", onSubmit, true);
+}
+else{
+  
+  alert('algo anda mal');
+}
